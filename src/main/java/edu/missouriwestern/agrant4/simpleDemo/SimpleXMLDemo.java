@@ -1,9 +1,10 @@
-package edu.missouriwestern.agrant4;
+package edu.missouriwestern.agrant4.simpleDemo;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.stream.XMLStreamException;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -15,34 +16,32 @@ import java.io.FileNotFoundException;
  * @author Aaron Grant Christin Wilson, Will Malita, and Melissa Bayer
  *
  */
-public class App 
+public class SimpleXMLDemo
 {
-    public static void main( String[] args ) throws FileNotFoundException, JAXBException {
+    public static void main( String[] args ) throws FileNotFoundException, JAXBException, XMLStreamException {
 
-        //This is an example of unmarshalling
+        //This is an example of unmarshalling with a simple XML
         File simpleXML = new File("zz_woz.xml");
         JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         Credentials credentials = (Credentials) jaxbUnmarshaller.unmarshal(simpleXML);
         System.out.println(credentials);
 
-        //This is an example of taking that same object and marshalling it into an xml file
+        //This is an example of taking that same object and marshalling it into an xml file with a simple XML
+        Password password = new Password();
+        password.setPass("Bad Pass");
+        password.setXhint("Best hint ever");
         Credentials newCredentials = new Credentials(
             "missouriwestern.edu",
             "587398",
-            "best hint ever",
             "Team Awesome",
-            "BadPass"
+            password
             );
-
-        JAXBContext jaxbContext2 = JAXBContext.newInstance(Credentials.class);
-        Marshaller jaxbMarshaller = jaxbContext2.createMarshaller();
-
+        jaxbContext = JAXBContext.newInstance(Credentials.class);
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
         jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
-
         jaxbMarshaller.marshal( newCredentials, new File ("newCredentials.xml"));
         jaxbMarshaller.marshal( newCredentials, System.out);
-
 
     }
 }

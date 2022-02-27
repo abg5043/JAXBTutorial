@@ -1,4 +1,4 @@
-package edu.missouriwestern.agrant4;
+package edu.missouriwestern.agrant4.simpleDemo;
 
 import javax.xml.bind.annotation.*;
 

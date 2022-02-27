@@ -1,31 +1,25 @@
-package edu.missouriwestern.agrant4;
+package edu.missouriwestern.agrant4.simpleDemo;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
-@XmlType( propOrder = {"host", "port", "xhint", "user", "password"})
 @XmlRootElement( name = "credentials" )
 public class Credentials {
 
   //Create fields for every xml attribute and element
-  String host;
-  String port;
-  String xhint;
-  String user;
-  String password;
+  private String host;
+  private String port;
+  private String user;
+  private Password password;
 
-  public Credentials(String host, String port, String xhint, String user, String password) {
+  public Credentials(String host, String port, String user, Password password) {
     this.host = host;
     this.port = port;
-    this.xhint = xhint;
     this.user = user;
     this.password = password;
   }
 
   //To make JAXB work, we need a no-arg constructor
-  //TEST CHANGE
   public Credentials() {};
 
   //always put XML annotations for elements above the setter for each field.
@@ -46,17 +40,6 @@ public class Credentials {
     return port;
   }
 
-
-  //XML attributes seem to only allow for attributes at the class level
-  @XmlAttribute( name = "xhint" )
-  public void setXhint(String xhint) {
-    this.xhint = xhint;
-  }
-
-  public String getXhint() {
-    return xhint;
-  }
-
   @XmlElement( name = "user")
   public void setUser(String user) {
     this.user = user;
@@ -66,20 +49,19 @@ public class Credentials {
     return user;
   }
 
-
-  @XmlElement( name = "password")
-  public void setPassword(String password) {
+  //Any element with annotations need to be objects with their own annotations
+  @XmlElement(name = "password")
+  public void setPassword(Password password) {
     this.password = password;
   }
 
-  public String getPassword() {
+  public Password getPassword() {
     return password;
   }
 
   @Override
   public String toString() {
     return "Credentials {" +
-        "xhint=" + xhint + ", " +
         "user=" + user + ", " +
         "password=" + password + ", " +
         "host=" + host + ", " +
