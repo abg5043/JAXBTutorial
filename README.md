@@ -44,7 +44,7 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
 
   - Main code
 
-  ```
+  ```Java
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
