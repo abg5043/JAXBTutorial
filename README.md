@@ -1,6 +1,6 @@
 # JAXBTutorial
-## What is JAXB?
-JAXB stands for Java Architecture XML Binding. It is a tool that is used by Java developers to map Java to XML representations. Today, JAXB  is also  known as Jakarta XML binding.    
+/## What is JAXB?
+JAXB stands for Java Architecture XML Binding. It is a tool that is used by Java developers to map Java to XML representations. Today, JAXB  is also  known as Jakarta XML binding./
 
 ## Removal of JAXB from the Java JDK:
 JAXB became a part of the JDK in Java 6. In Java 11 (2018), JAXB was removed from the JDK. 
