@@ -1,3 +1,5 @@
+package edu.missouriwestern.agrant4.arrayDemo;
+
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;

@@ -1,3 +1,5 @@
+package edu.missouriwestern.agrant4.arrayDemo;
+
 /**
  * This class represents a single state object.
  */
