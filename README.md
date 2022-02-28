@@ -13,7 +13,7 @@ Versions exist:  JAXB 1.0 &  JAXB 2.0, Jakarta 3.0
 ## Since it has been removed:
 JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use one of the following dependencies
 
-\\\
+```
 
 <!-- JAXB API only -->
   <dependency>
@@ -30,7 +30,7 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
       <scope>runtime</scope>
   </dependency>
 
-\\\
+```
 
 
 ## The two main features/operations of JAXB are:
