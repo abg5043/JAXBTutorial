@@ -107,15 +107,15 @@ import java.io.File;
   - POJO code
   - Main code
 
-## An Array Expressed as XML (complex)
-#### Marshalling (Java Object to XML)
-  - POJO code
+## Example 3: Array Expressed as XML (complex)
+#### Unmarshalling (XML to Java Object)
+  - POJO
   ````Java
   
   ````
   - Main code
   - Output in file
-#### Unmarshalling (XML to Java Object)
-  - URL link
+#### Marshalling (Java Object to XML)
+  - We will be unmarshalling from this [url](https://civilserviceusa.github.io/us-states/data/states.xml) that shows a collection of states in the form of a nested XML file.
   - POJO code
   - Main code
