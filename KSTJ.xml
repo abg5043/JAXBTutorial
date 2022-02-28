@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<?xml-stylesheet href="latest_ob.xsl" type="text/xsl"?>
+<current_observation version="1.0"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:noNamespaceSchemaLocation="http://www.weather.gov/view/current_observation.xsd">
+	<credit>NOAA's National Weather Service</credit>
+	<credit_URL>https://weather.gov/</credit_URL>
+	<image>
+		<url>https://weather.gov/images/xml_logo.gif</url>
+		<title>NOAA's National Weather Service</title>
+		<link>https://www.weather.gov</link>
+	</image>
+	<suggested_pickup>15 minutes after the hour</suggested_pickup>
+	<suggested_pickup_period>60</suggested_pickup_period>
+	<location>St. Joseph, Rosecrans Memorial Airport, MO</location>
+	<station_id>KSTJ</station_id>
+	<latitude>39.76806</latitude>
+	<longitude>-94.90917</longitude>
+	<observation_time>Last Updated on Feb 27 2022, 5:53 am CST</observation_time>
+	<observation_time_rfc822>Sun, 27 Feb 2022 05:53:00 -0600</observation_time_rfc822>
+	<weather>Fair</weather>
+	<temperature_string>13.0 F (-10.6 C)</temperature_string>
+	<temp_f>13.0</temp_f>
+	<temp_c>-10.6</temp_c>
+	<relative_humidity>77</relative_humidity>
+	<wind_string>Calm</wind_string>
+	<wind_dir>North</wind_dir>
+	<wind_degrees>0</wind_degrees>
+	<wind_mph>0.0</wind_mph>
+	<wind_kt>0</wind_kt>
+	<pressure_string>1029.2 mb</pressure_string>
+	<pressure_mb>1029.2</pressure_mb>
+	<pressure_in>30.36</pressure_in>
+	<dewpoint_string>7.0 F (-13.9 C)</dewpoint_string>
+	<dewpoint_f>7.0</dewpoint_f>
+	<dewpoint_c>-13.9</dewpoint_c>
+	<visibility_mi>9.00</visibility_mi>
+ 	<icon_url_base>https://forecast.weather.gov/images/wtf/small/</icon_url_base>
+	<two_day_history_url>https://www.weather.gov/data/obhistory/KSTJ.html</two_day_history_url>
+	<icon_url_name>nskc.png</icon_url_name>
+	<ob_url>https://www.weather.gov/data/METAR/KSTJ.1.txt</ob_url>
+	<disclaimer_url>https://www.weather.gov/disclaimer.html</disclaimer_url>
+	<copyright_url>https://www.weather.gov/disclaimer.html</copyright_url>
+	<privacy_policy_url>https://www.weather.gov/notice.html</privacy_policy_url>
+</current_observation>

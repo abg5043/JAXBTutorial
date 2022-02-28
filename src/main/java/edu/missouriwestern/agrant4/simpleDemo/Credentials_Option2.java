@@ -1,10 +1,10 @@
-package edu.missouriwestern.agrant4;
+package edu.missouriwestern.agrant4.simpleDemo;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-public class Credentials {
+public class Credentials_Option2 {
 
   @XmlElement
   protected String host;
