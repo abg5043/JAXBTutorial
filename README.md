@@ -45,6 +45,17 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
   - Main code
 
   ```
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+import java.io.File;
+
+/**
+ * This app demonstrates how to use JAXB to turn a simple xml file into an object (unmarshall)
+ * and then a java object into an xml file (marshall)
+ */
+ 
   public class SimpleXMLDemo
 {
     public static void main( String[] args ) {
