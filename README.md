@@ -34,35 +34,35 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
 
 
 ## The two main features/operations of JAXB are:
-### Marshalling  (description) dfshfdjh
-### Unmarshalling (description)
+- Marshalling  (description) dfshfdjh
+- Unmarshalling (description)
 
 ## Simple XML File (simple)
 ### Marshalling (Java Object to XML)
-POJO code
-Main code
-Output in console
+  - POJO code
+  - Main code
+  - Output in console
 ### Unmarshalling (XML to Java Object)
-Local XML file 
-POJO code
-Main code
+  - Local XML file 
+  - POJO code
+  - Main code
 
 ## Nested XML File (complex)
 ### Marshalling (Java Object to XML)
-POJO code
-Main code
-Output in console
+  - POJO code
+  - Main code
+  - Output in console
 ### Unmarshalling (XML to Java Object)
-URL link
-POJO code
-Main code
+  - URL link
+  - POJO code
+  - Main code
 
 ## An Array Expressed as XML (complex)
 ### Marshalling (Java Object to XML)
-POJO code
-Main code
-Output in file
+  - POJO code
+  - Main code
+  - Output in file
 ### Unmarshalling (XML to Java Object)
-URL link
-POJO code
-Main code
+  - URL link
+  - POJO code
+  - Main code
