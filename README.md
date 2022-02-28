@@ -34,8 +34,8 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
 
 
 ## The two main features/operations of JAXB are:
-- Marshalling  (description) dfshfdjh
-- Unmarshalling (description)
+- Marshalling -> converting a Java Object into XML
+- Unmarshalling -> converting XML to a Java Object
 
 ## Simple XML File (simple)
 #### Marshalling (Java Object to XML)
