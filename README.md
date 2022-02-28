@@ -40,7 +40,47 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
 ## Simple XML File (simple)
 #### Marshalling (Java Object to XML)
   - POJO code
+
+
   - Main code
+
+  ```
+  public class SimpleXMLDemo
+{
+    public static void main( String[] args ) {
+
+        //try-catch catches JAXBException
+        try {
+            //This is an example of unmarshalling with a simple XML
+            File simpleXML = new File("zz_woz.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Credentials credentials = (Credentials) jaxbUnmarshaller.unmarshal(simpleXML);
+            System.out.println(credentials);
+
+            //This is an example of taking that same object and marshalling it into an xml file with a simple XML
+            Password password = new Password();
+            password.setPass("Bad Pass");
+            password.setXhint("Best hint ever");
+            Credentials newCredentials = new Credentials(
+                "missouriwestern.edu",
+                "587398",
+                "Team Awesome",
+                password
+            );
+            jaxbContext = JAXBContext.newInstance(Credentials.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
+            jaxbMarshaller.marshal( newCredentials, new File ("newCredentials.xml"));
+            jaxbMarshaller.marshal( newCredentials, System.out);
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+}
+```
   - Output in console
 #### Unmarshalling (XML to Java Object)
   - Local XML file 
