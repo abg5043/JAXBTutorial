@@ -109,7 +109,7 @@ import java.io.File;
 
 ## Example 3: Array Expressed as XML (complex)
 #### Unmarshalling (XML to Java Object)
-  - We will be unmarshalling from this [url](https://civilserviceusa.github.io/us-states/data/states.xml) that shows a collection of states in the form of XML.
+  - We will be **unmarshalling** loading the XML from this [url](https://civilserviceusa.github.io/us-states/data/states.xml) . The url contains a collection of states in the form of nested XML.
   - Step 1: We will need to create a limited-type POJO for each individual state. 
   ````Java
   /**
@@ -136,6 +136,7 @@ public class State {
  
 } //End of State class.
   ````
+  - Step 2: We will also need a class that represents the collection of states. This class will contain the @XMLAnnotations. Because ArrayList is a part of the collection framework, and does not have any JAXB annotations, we need to have a seperate class to represent the set of objects.
   - Main code
   - Output in file
 #### Marshalling (Java Object to XML)
