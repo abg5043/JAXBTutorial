@@ -11,7 +11,7 @@ JAXB became a part of the JDK in Java 6. In Java 11 (2018), JAXB was removed fro
 Versions exist:  JAXB 1.0 &  JAXB 2.0, Jakarta 3.0
 
 ## Since it has been removed:
-JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependencies. Using older versions of the dependencies require different import statements. 
+JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependency. Using older versions of the dependencies require different import statements. 
 
 ```
 
