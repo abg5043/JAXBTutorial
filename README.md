@@ -11,7 +11,7 @@ In Java 11 it is completely removed.
 Versions exist:  JAXB 1.0 &  JAXB 2.0, Jakarta 3.0
 
 ## Since it has been removed:
-JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use one of the following dependencies
+JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependencies. Using older versions of the dependencies require different import statements. 
 
 ```
 
@@ -38,31 +38,31 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
 - Unmarshalling (description)
 
 ## Simple XML File (simple)
-### Marshalling (Java Object to XML)
+#### Marshalling (Java Object to XML)
   - POJO code
   - Main code
   - Output in console
-### Unmarshalling (XML to Java Object)
+#### Unmarshalling (XML to Java Object)
   - Local XML file 
   - POJO code
   - Main code
 
 ## Nested XML File (complex)
-### Marshalling (Java Object to XML)
+#### Marshalling (Java Object to XML)
   - POJO code
   - Main code
   - Output in console
-### Unmarshalling (XML to Java Object)
+#### Unmarshalling (XML to Java Object)
   - URL link
   - POJO code
   - Main code
 
 ## An Array Expressed as XML (complex)
-### Marshalling (Java Object to XML)
+#### Marshalling (Java Object to XML)
   - POJO code
   - Main code
   - Output in file
-### Unmarshalling (XML to Java Object)
+#### Unmarshalling (XML to Java Object)
   - URL link
   - POJO code
   - Main code
