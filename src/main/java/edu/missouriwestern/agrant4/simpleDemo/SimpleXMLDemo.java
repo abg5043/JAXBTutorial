@@ -18,6 +18,7 @@ public class SimpleXMLDemo
 {
     public static void main( String[] args ) {
 
+        //try-catch catches JAXBException
         try {
             //This is an example of unmarshalling with a simple XML
             File simpleXML = new File("zz_woz.xml");
