@@ -129,30 +129,7 @@ public class State {
 
     /* --- TO STRING --- */
     //I would suggest making a toString so that you can easily read & print the object.
-    @Override
-    public String toString() {
-        return "State{" +
-                "state='" + state + '\'' +
-                ", slug='" + slug + '\'' +
-                ", code='" + code + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", website='" + website + '\'' +
-                ", admission_date='" + admission_date + '\'' +
-                ", admission_number='" + admission_number + '\'' +
-                ", capital_city='" + capital_city + '\'' +
-                ", capital_url='" + capital_url + '\'' +
-                ", population='" + population + '\'' +
-                ", population_rank='" + population_rank + '\'' +
-                ", constitution_url='" + constitution_url + '\'' +
-                ", state_flag_url='" + state_flag_url + '\'' +
-                ", state_seal_url='" + state_seal_url + '\'' +
-                ", map_image_url='" + map_image_url + '\'' +
-                ", landscape_background_url='" + landscape_background_url + '\'' +
-                ", skyline_background_url='" + skyline_background_url + '\'' +
-                ", twitter_url='" + twitter_url + '\'' +
-                ", facebook_url='" + facebook_url + '\'' +
-                '}';
-    } //End of toString.
+    ...
 
     /* --- ALL GETTERS & SETTERS --- */
     ...
