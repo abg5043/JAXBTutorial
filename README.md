@@ -13,7 +13,7 @@ Versions exist:  JAXB 1.0 &  JAXB 2.0, Jakarta 3.0
 ## Since it has been removed:
 JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependency. Using older versions of the dependencies require different import statements. 
 
-```
+```Java
 
 <!-- JAXB API only -->
   <dependency>
