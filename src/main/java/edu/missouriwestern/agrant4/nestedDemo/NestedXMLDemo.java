@@ -16,7 +16,7 @@ import java.io.File;
  */
 public class NestedXMLDemo
 {
-    public static void main( String[] args ) throws JAXBException {
+    public static void main( String[] args ) {
 
         try {
             //This is an example of unmarshalling a nested XML
