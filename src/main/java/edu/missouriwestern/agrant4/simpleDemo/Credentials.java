@@ -1,7 +1,8 @@
 package edu.missouriwestern.agrant4.simpleDemo;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement( name = "credentials" )
 public class Credentials {

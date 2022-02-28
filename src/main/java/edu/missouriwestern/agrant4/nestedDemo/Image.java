@@ -1,6 +1,6 @@
 package edu.missouriwestern.agrant4.nestedDemo;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.XmlElement;
 
 public class Image {
   private String url;

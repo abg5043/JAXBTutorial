@@ -1,6 +1,7 @@
 package edu.missouriwestern.agrant4.nestedDemo;
 
-import javax.xml.bind.annotation.*;
+
+import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "current_observation")
 //This annotation means that we put the annotations above the field names instead of setters

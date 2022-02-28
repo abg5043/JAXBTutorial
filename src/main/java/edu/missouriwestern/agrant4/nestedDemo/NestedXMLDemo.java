@@ -1,12 +1,10 @@
 package edu.missouriwestern.agrant4.nestedDemo;
 
-import edu.missouriwestern.agrant4.simpleDemo.Credentials;
-import edu.missouriwestern.agrant4.simpleDemo.Password;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLStreamException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,8 +35,5 @@ public class NestedXMLDemo
         jaxbMarshaller.setProperty( Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "http://www.weather.gov/view/current_observation.xsd");
         jaxbMarshaller.marshal( currentObservation, new File ("newObservations.xml"));
         jaxbMarshaller.marshal( currentObservation, System.out);
-
-
-
     }
 }
