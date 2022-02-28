@@ -1,8 +1,10 @@
 package edu.missouriwestern.agrant4.nestedDemo;
 
-
 import jakarta.xml.bind.annotation.*;
 
+/**
+ * This class is the root class for an xml file of current observations.
+ */
 @XmlRootElement(name = "current_observation")
 //This annotation means that we put the annotations above the field names instead of setters
 @XmlAccessorType(XmlAccessType.FIELD)

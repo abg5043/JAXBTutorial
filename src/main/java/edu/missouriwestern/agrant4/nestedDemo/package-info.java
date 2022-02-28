@@ -8,9 +8,9 @@
 
 package edu.missouriwestern.agrant4.nestedDemo;
 
-import javax.xml.bind.annotation.XmlNs;
-import javax.xml.bind.annotation.XmlNsForm;
-import javax.xml.bind.annotation.XmlSchema;
+import jakarta.xml.bind.annotation.XmlNs;
+import jakarta.xml.bind.annotation.XmlNsForm;
+import jakarta.xml.bind.annotation.XmlSchema;
 
 //https://stackoverflow.com/questions/25819934/jaxb-unmarshalling-with-namespace
 

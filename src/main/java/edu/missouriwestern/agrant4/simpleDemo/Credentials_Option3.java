@@ -1,14 +1,11 @@
-/*
-
-// JAKARTA 3.0.0 (using different dependencies at the same time
+package edu.missouriwestern.agrant4.simpleDemo;// JAKARTA 3.0.0 (using different dependencies at the same time
 // creates errors)
 
 import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "credentials")
 @XmlAccessorType(XmlAccessType.FIELD)
-
-public class Credentials {
+public class Credentials_Option3 {
 
   @XmlElement(name = "user")
   String user;
@@ -36,4 +33,3 @@ public class Credentials {
         " }";
   }
 }
-*/
