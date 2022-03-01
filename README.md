@@ -201,7 +201,40 @@ public class States {
   //Remember that the way it is printed into the console will be determined by your toString().
  State{state='Alabama', slug='alabama', code='AL', nickname='Yellowhammer State', website='http://www.alabama.gov/', admission_date='1819-12-14', admission_number='22', capital_city='Montgomery', capital_url='http://www.montgomeryal.gov/', population='4833722', population_rank='23', constitution_url='http://alisondb.legislature.state.al.us/alison/default.aspx', state_flag_url='https://cdn.civil.services/us-states/flags/alabama-large.png', state_seal_url='https://cdn.civil.services/us-states/seals/alabama-large.png', map_image_url='https://cdn.civil.services/us-states/maps/alabama-large.png', landscape_background_url='https://cdn.civil.services/us-states/backgrounds/1280x720/landscape/alabama.jpg', skyline_background_url='https://cdn.civil.services/us-states/backgrounds/1280x720/skyline/alabama.jpg', twitter_url='https://twitter.com/alabamagov', facebook_url='https://www.facebook.com/alabamagov%27%7D}
   ````
+  <br/>
+  
 #### Marshalling (Java Object to XML)
-  - POJO code
-  - Main code
-  - Output in file
+  - We will be loading the Java Objects, which will be our State Objects, into a local .xml file (I call my file 'toXML.xml'). 
+  - **Step 1:** Creating a method that takes in a set of States.
+  ````Java
+  public static void loadToXML(States states) {
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(States.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            //Setting the XML format, to make it easy on the eye. 
+            jaxbMarshaller.setProperty(JAXB_FORMATTED_OUTPUT, true);
+            //jaxbMarshaller.marshal(states, System.out); <- This prints to console
+            //Notice that we marshal using the states, which is a collection of states. 
+            jaxbMarshaller.marshal(states, new File("toXML.xml")); // <- this prints to the toXML.xml file
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } //End of catch.
+    } //End of loadToXML.
+  ````
+  - **Step 2:** Call the function in main.
+  ````Java
+ public static void main(String[] args) {
+        //Putting the web address into a String.
+        String address = "https://civilserviceusa.github.io/us-states/data/states.xml";
+        //I did not want to type (manually set) all the data, so ...
+        //I store the ArrayList returned from Unmarshalling in this ArrayList of State objects.
+        ArrayList<State> stList = loadToObject(address);
+        //Then I create a new set of states....
+        States sts = new States();
+        //and set the collection of states to the State Objects list (which is the ArrayList of State Objects).
+        sts.setStates(stList); //Rmember we ArrayList does not work with XML annotations it is important that you 
+        //use the ArrayList and set the List in the States class. If you try to use the ArrayList you will get an error.
+        loadToXML(sts);
+    } //End of main method.
+  ````
