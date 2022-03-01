@@ -187,7 +187,20 @@ public class States {
         return stList;
     } //End of loadToObject.
   ````
-  - Output in file
+  - **Step 4:** : Setting the address in main and calling our newly created function.
+   ````Java
+    public static void main(String[] args) {
+        //Putting the web address into a String.
+        String address = "https://civilserviceusa.github.io/us-states/data/states.xml";
+        //Loading from the website and printing the ArrayList of State objects we created.
+        loadToObject(address);
+     } //End of main.
+  ````
+  - Output in file (Note: the above code will print all State objects added to the ArrayList, which is all 50, I will only be showing one of the printed state objects printed in the console).
+  ````Java
+  //Remember that the way it is printed into the console will be determined by your toString().
+ State{state='Alabama', slug='alabama', code='AL', nickname='Yellowhammer State', website='http://www.alabama.gov/', admission_date='1819-12-14', admission_number='22', capital_city='Montgomery', capital_url='http://www.montgomeryal.gov/', population='4833722', population_rank='23', constitution_url='http://alisondb.legislature.state.al.us/alison/default.aspx', state_flag_url='https://cdn.civil.services/us-states/flags/alabama-large.png', state_seal_url='https://cdn.civil.services/us-states/seals/alabama-large.png', map_image_url='https://cdn.civil.services/us-states/maps/alabama-large.png', landscape_background_url='https://cdn.civil.services/us-states/backgrounds/1280x720/landscape/alabama.jpg', skyline_background_url='https://cdn.civil.services/us-states/backgrounds/1280x720/skyline/alabama.jpg', twitter_url='https://twitter.com/alabamagov', facebook_url='https://www.facebook.com/alabamagov%27%7D}
+  ````
 #### Marshalling (Java Object to XML)
   - POJO code
   - Main code
