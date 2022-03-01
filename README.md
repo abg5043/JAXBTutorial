@@ -140,8 +140,7 @@ import jakarta.xml.bind.Unmarshaller;
 import java.io.File;
 
 /**
- * This app demonstrates how to use JAXB to turn a simple xml file into an object (unmarshall)
- * and then a java object into an xml file (marshall)
+ * This app demonstrates how to use JAXB to turn a java object into an xml file (marshall)
  */
  
   public class SimpleXMLDemo
@@ -176,17 +175,8 @@ import java.io.File;
 ```
   - Output in console
 #### Unmarshalling (XML to Java Object)
-  - We will be using a local WOZ file to load login credentials. 
- 
- ```Java
- <?xml version="1.0"?>
-<credentials>
-    <host>woz.cs.missouriwestern.edu</host>
-    <port>33006</port> <!--This isn't the right port, by the way -->
-    <user>csc</user>
-    <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
-</credentials>
-```
+  - We will be loading login credentials, from a local .xml file called 'zz_woz.xml'. 
+  - Call in main
 
 ```Java
 
@@ -198,12 +188,8 @@ import java.io.File;
 
 /**
  * This app demonstrates how to use JAXB to turn a simple xml file into an object (unmarshall)
- * and then a java object into an xml file (marshall)
- *
- * @since February 2022
- * @author Aaron Grant Christin Wilson, Will Malita, and Melissa Bayer
- *
  */
+
 public class SimpleXMLDemo
 {
     public static void main( String[] args ) {
