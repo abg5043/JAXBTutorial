@@ -159,7 +159,9 @@ public static void main( String[] args ) {
 ````
 - Credentials printed to console:
 ````Java
+
 ````
+
 #### Marshalling (Java Object to XML)
   - When we marshal we will use the above Credentials and Password classes.
 
