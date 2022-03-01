@@ -53,7 +53,6 @@ We learned that different versions of the dependencies will require different im
 #### Unmarshalling (XML to Java Object)
   - Step 1: We will need to create a POJO with JAXB Annotations.
   ```Java 
-
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
@@ -92,12 +91,52 @@ public class Credentials {
   
   /* --- TO STRING --- */
     //I would suggest making a toString so that you can easily read & print the object.
-  }
-}
+} //End of Credentials class.
 
 ```
 - Step 2: Creating another class so that we can grab the 'xhint' attribute.
+Explanation: maybe aaron should explain this...
+````XML
+ <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
 ````
+````Java
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlValue;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Password {
+  @XmlAttribute(name = "xhint")
+  private String xhint;
+
+  @XmlValue
+  private String pass;
+
+  public String getPass() {
+    return pass;
+  }
+
+  public void setPass(String pass) {
+    this.pass = pass;
+  }
+
+  public String getXhint() {
+    return xhint;
+  }
+
+  public void setXhint(String xhint) {
+    this.xhint = xhint;
+  }
+
+  @Override
+  public String toString() {
+    return "Password{" +
+        "xhint='" + xhint + '\'' +
+        ", pass='" + pass + '\'' +
+        '}';
+  }
+}
 ````
 
 -  Step 3: Unmarshalling in the main.
