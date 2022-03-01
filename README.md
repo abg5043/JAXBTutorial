@@ -350,4 +350,4 @@ public class States {
         loadToXML(sts);
     } //End of main method.
   ````
-  - Output file can be found -> [here](https://github.com/abg5043/JAXBTutorial/blob/master/toXML.xml)
+  - Output file can be found -> ['toXML.xml' output](https://github.com/abg5043/JAXBTutorial/blob/master/toXML.xml)
