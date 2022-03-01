@@ -41,20 +41,69 @@ We learned that different versions of the dependencies will require different im
 
 ## Example 1: Simple XML File (simple)
 #### Unmarshalling (XML to Java Object)
-  - We will be loading login credentials, from a local .xml file called 'zz_woz.xml'. 
-  - Call in main
+  - Step 1: We will need to create a POJO with JAXB Annotations.
+  ```Java
+  ```Java 
+
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement( name = "credentials" )
+public class Credentials {
+
+  //Create fields for every xml attribute and element
+  private String host;
+  private String port;
+  private String user;
+  private Password password;
+  
+  //Create constructor and pass in all elements
+  public Credentials(String host, String port, String user, Password password) {
+    this.host = host;
+    this.port = port;
+    this.user = user;
+    this.password = password;
+  }
+
+  //To make JAXB work, we need a no-arg constructor
+  public Credentials() {};
+
+  //Any element with annotations need to be objects with their own annotations.
+  
+  //Always put XML annotations for elements above the setter for each field.  
+  @XmlElement( name = "host")
+  public void setHost(String host) {
+    this.host = host;
+  }
+  public String getHost() {
+    return host;
+  }
+  
+  /* --- REMAINING GETTERS & SETTERS --- */
+  
+  /* --- TO STRING --- */
+    //I would suggest making a toString so that you can easily read & print the object.
+  }
+}
+
+```
+  ````
 #### Marshalling (Java Object to XML)
   - Output in console
+
+<br/>
+
 ## Nested XML File (complex)
+#### Unmarshalling (XML to Java Object)
+  - We will be loading the XML from this [url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
+  - POJO code
+  - Main code
 #### Marshalling (Java Object to XML)
   - POJO code
   - Main code
   - Output in console
 
-#### Unmarshalling (XML to Java Object)
-  - We will be loading the XML from this [url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
-  - POJO code
-  - Main code
+<br/>
 
 ## Example 3: Array Expressed as XML (complex)
 #### Unmarshalling (XML to Java Object)
