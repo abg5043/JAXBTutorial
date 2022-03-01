@@ -39,10 +39,8 @@ We learned that different versions of the dependencies will require different im
 ``` 
 <br/>
 
-## Simple XML File (simple)
-  #### Create a POJO with JAXB annotations (we created 3 examples to show different ways to annotate).  
-  **Example 1:**
-  
+## Example 1: Simple XML File (simple)
+  #### Step 1: Create a POJO with JAXB annotations.  
 ```Java 
 
 import jakarta.xml.bind.annotation.XmlElement;
@@ -87,92 +85,8 @@ public class Credentials {
 }
 
 ```
-  **Example 2:**
-
-```Java
-
-import jakarta.xml.bind.annotation.*;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement
-public class Credentials_Option2 {
-
-  @XmlElement
-  protected String host;
-
-  @XmlAttribute
-  protected String xhint;
-
-  /* --- REMAINING ELEMENTS & ATTRIBUTES --- */
-}
-
-```
-  **Example 3:**
-  
-  ```Java
-import jakarta.xml.bind.annotation.*;
-
-@XmlRootElement(name = "credentials")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Credentials_Option3 {
-
-  @XmlElement(name = "user")
-  String user;
-
-  @XmlAttribute(name = "xhint")
-  String xhint;
-
-  /* --- REMAINING ELEMENTS & ATTRIBUTES --- */
-
-  /* --- TO STRING --- */
-
-  }
-}
-
-```
-#### Marshalling (Java Object to XML)
-
-  ```Java
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
-import java.io.File;
-
-/**
- * This app demonstrates how to use JAXB to turn a java object into an xml file (marshall)
- */
  
-  public class SimpleXMLDemo
-{
-    public static void main( String[] args ) {
-
-        //try-catch catches JAXBException
-        try {
-
-            //This is an example of taking that same object and marshalling it into an xml file with a simple XML
-            Password password = new Password();
-            password.setPass("Bad Pass");
-            password.setXhint("Best hint ever");
-            Credentials newCredentials = new Credentials(
-                "missouriwestern.edu",
-                "587398",
-                "Team Awesome",
-                password
-            );
-            jaxbContext = JAXBContext.newInstance(Credentials.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
-            jaxbMarshaller.marshal( newCredentials, new File ("newCredentials.xml"));
-            jaxbMarshaller.marshal( newCredentials, System.out);
-
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
-}
-```
+#### Marshalling (Java Object to XML)
   - Output in console
 #### Unmarshalling (XML to Java Object)
   - We will be loading login credentials, from a local .xml file called 'zz_woz.xml'. 
