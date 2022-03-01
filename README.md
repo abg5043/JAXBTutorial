@@ -202,8 +202,8 @@ public static void main( String[] args ) {
         } catch (JAXBException e) {
             e.printStackTrace();
             System.exit(1);
-        }
-    }
+        } //End of catch.
+    } //End of main.
 ````
 - Output in 'newCredentials.xml' file:
 ````XML
