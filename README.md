@@ -6,7 +6,18 @@ JAXB stands for Java Architecture XML Binding. It is a tool that is used by Java
 ## The two main features/operations of JAXB are: 
 - **````Marshalling```` -> converting a Java Object into XML** 
 - **```` Unmarshalling```` -> converting XML to a Java Object** 
-<br/><br/>  
+<br/>
+
+## JAXB Annotations and their meaning:
+JAXB uses JAXB Annotations in classes to be able to use the above features. The annotations that are used in the following examples are:
+- @XmlRootElement :
+- @XmlValue :
+- @XmlElement :
+- @XmlAttribute :
+- @XmlAccessorType :
+
+<br/>  
+
 ## Removal of JAXB from the Java JDK:
 JAXB became a part of the JDK in Java 6. In Java 11 (2018), JAXB was removed from the JDK. 
 - JAXB is still a part of the JDK in Java 6,7, and 8.
