@@ -96,7 +96,28 @@ public class Credentials {
 }
 
 ```
--  
+- Step 2: Creating another class so that we can grab the 'xhint' attribute.
+````
+````
+
+-  Step 3: Unmarshalling in the main.
+```Java
+public static void main( String[] args ) {
+
+        //try-catch catches JAXBException
+        try {
+            //This is an example of unmarshalling with a simple XML
+            File simpleXML = new File("zz_woz.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Credentials credentials = (Credentials) jaxbUnmarshaller.unmarshal(simpleXML);
+            System.out.println(credentials);
+         } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } //End of catch.
+    } //End of main.
+````
 #### Marshalling (Java Object to XML)
   - Output in console
 
