@@ -40,7 +40,7 @@ We learned that different versions of the dependencies will require different im
 <br/>
 
 ## Simple XML File (simple)
-  #### - **Create a POJO with JAXB annotations** (we created 3 examples to show different ways to annotate).  
+  #### Create a POJO with JAXB annotations (we created 3 examples to show different ways to annotate).  
   **Example 1:**
   
 ```Java 
@@ -100,18 +100,10 @@ public class Credentials_Option2 {
   @XmlElement
   protected String host;
 
-  @XmlElement
-  protected String port;
-
   @XmlAttribute
   protected String xhint;
 
-  @XmlElement
-  protected String user;
-
-  @XmlElement
-  protected String password;
-
+  /* --- REMAINING ELEMENTS & ATTRIBUTES --- */
 }
 
 ```
@@ -127,17 +119,10 @@ public class Credentials_Option3 {
   @XmlElement(name = "user")
   String user;
 
-  @XmlElement(name = "password")
-  String password;
-
   @XmlAttribute(name = "xhint")
   String xhint;
 
-  @XmlElement(name = "host")
-  String host;
-
-  @XmlElement(name = "port")
-  String port;
+  /* --- REMAINING ELEMENTS & ATTRIBUTES --- */
 
   /* --- TO STRING --- */
 
@@ -146,7 +131,6 @@ public class Credentials_Option3 {
 
 ```
 #### Marshalling (Java Object to XML)
-
 
   ```Java
 import jakarta.xml.bind.JAXBContext;
