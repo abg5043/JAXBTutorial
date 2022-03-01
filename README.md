@@ -94,7 +94,7 @@ public class Credentials {
 } //End of Credentials class.
 
 ```
-- Step 2: Creating another class so that we can grab the 'xhint' attribute.
+- Step 2: Create another class so that we can grab the 'xhint' attribute.
 Explanation: maybe aaron should explain this...
 ````XML
  <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
@@ -138,7 +138,6 @@ public class Password {
   }
 }
 ````
-
 -  Step 3: Unmarshalling in the main.
 ```Java
 public static void main( String[] args ) {
@@ -146,6 +145,7 @@ public static void main( String[] args ) {
         //try-catch catches JAXBException
         try {
             //This is an example of unmarshalling with a simple XML
+            //Here we are reading it in from a local file.
             File simpleXML = new File("zz_woz.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -157,8 +157,43 @@ public static void main( String[] args ) {
         } //End of catch.
     } //End of main.
 ````
+- Credentials printed to console:
+````Java
+````
 #### Marshalling (Java Object to XML)
-  - Output in console
+  - When we marshal we will use the above Credentials and Password classes.
+
+````Java
+public static void main( String[] args ) {
+
+ //try-catch catches JAXBException
+  try {
+       //This is an example of taking that same object and marshalling it into an xml file with a simple XML
+            Password password = new Password();
+            password.setPass("Bad Pass");
+            password.setXhint("Best hint ever");
+            Credentials newCredentials = new Credentials(
+                "missouriwestern.edu",
+                "587398",
+                "Team Awesome",
+                password
+            );
+            jaxbContext = JAXBContext.newInstance(Credentials.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
+            jaxbMarshaller.marshal( newCredentials, new File ("newCredentials.xml"));
+            jaxbMarshaller.marshal( newCredentials, System.out);
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+````
+- Output file:
+````XML
+
+````
 
 <br/>
 
