@@ -230,8 +230,17 @@ public class SimpleXMLDemo
   - POJO code
   - Main code
   - Output in console
+```Java
+
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
 #### Unmarshalling (XML to Java Object)
-  - URL link
+  - We will be loading the XML from this [url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
   - POJO code
   - Main code
 
