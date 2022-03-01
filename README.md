@@ -40,104 +40,16 @@ We learned that different versions of the dependencies will require different im
 <br/>
 
 ## Example 1: Simple XML File (simple)
-  #### Step 1: Create a POJO with JAXB annotations.  
-```Java 
-
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement( name = "credentials" )
-public class Credentials {
-
-  //Create fields for every xml attribute and element
-  private String host;
-  private String port;
-  private String user;
-  private Password password;
-  
-  //Create constructor and pass in all elements
-  public Credentials(String host, String port, String user, Password password) {
-    this.host = host;
-    this.port = port;
-    this.user = user;
-    this.password = password;
-  }
-
-  //To make JAXB work, we need a no-arg constructor
-  public Credentials() {};
-
-  //Any element with annotations need to be objects with their own annotations.
-  
-  //Always put XML annotations for elements above the setter for each field.  
-  @XmlElement( name = "host")
-  public void setHost(String host) {
-    this.host = host;
-  }
-  public String getHost() {
-    return host;
-  }
-  
-  /* --- REMAINING GETTERS & SETTERS --- */
-  
-  /* --- TO STRING --- */
-    //I would suggest making a toString so that you can easily read & print the object.
-  }
-}
-
-```
- 
-#### Marshalling (Java Object to XML)
-  - Output in console
 #### Unmarshalling (XML to Java Object)
   - We will be loading login credentials, from a local .xml file called 'zz_woz.xml'. 
   - Call in main
-
-```Java
-
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
-import java.io.File;
-
-/**
- * This app demonstrates how to use JAXB to turn a simple xml file into an object (unmarshall)
- */
-
-public class SimpleXMLDemo
-{
-    public static void main( String[] args ) {
-
-        //try-catch catches JAXBException
-        try {
-            //This is an example of unmarshalling with a simple XML
-            File simpleXML = new File("zz_woz.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Credentials credentials = (Credentials) jaxbUnmarshaller.unmarshal(simpleXML);
-            System.out.println(credentials);
-
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
-}
-```
-
+#### Marshalling (Java Object to XML)
+  - Output in console
 ## Nested XML File (complex)
 #### Marshalling (Java Object to XML)
   - POJO code
   - Main code
   - Output in console
-```Java
-
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
 
 #### Unmarshalling (XML to Java Object)
   - We will be loading the XML from this [url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
