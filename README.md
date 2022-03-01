@@ -362,3 +362,10 @@ public class States {
     } //End of main method.
   ````
   - Output to file can be found -> ['toXML.xml' output](https://github.com/abg5043/JAXBTutorial/blob/master/toXML.xml)
+
+
+## Our Team!
+- Aaron Grant -> coder 
+- Christin Wilson -> coder
+- Melissa Bayer -> writer
+- Will Malita -> librarian 
