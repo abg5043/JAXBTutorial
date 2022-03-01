@@ -40,6 +40,16 @@ We learned that different versions of the dependencies will require different im
 <br/>
 
 ## Example 1: Simple XML File (simple)
+  - This is the XML we will be Unmarshalling & Marshalling.
+  ````XML
+  <?xml version="1.0"?>
+  <credentials>
+      <host>woz.cs.missouriwestern.edu</host>
+      <port>33006</port> <!--This isn't the right port, by the way -->
+      <user>csc</user>
+      <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
+  </credentials>
+````
 #### Unmarshalling (XML to Java Object)
   - Step 1: We will need to create a POJO with JAXB Annotations.
   ```Java 
@@ -86,6 +96,7 @@ public class Credentials {
 }
 
 ```
+-  
 #### Marshalling (Java Object to XML)
   - Output in console
 
