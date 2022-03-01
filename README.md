@@ -187,7 +187,7 @@ public class States {
         return stList;
     } //End of loadToObject.
   ````
-  - **Step 4:** : Setting the address in main and calling our newly created function.
+  - **Step 4:** Setting the address in main and calling our newly created function.
    ````Java
     public static void main(String[] args) {
         //Putting the web address into a String.
@@ -238,3 +238,4 @@ public class States {
         loadToXML(sts);
     } //End of main method.
   ````
+  - Output file can be found -> [here](https://github.com/abg5043/JAXBTutorial/blob/master/toXML.xml)
