@@ -109,8 +109,8 @@ import java.io.File;
 
 ## Example 3: Array Expressed as XML (complex)
 #### Unmarshalling (XML to Java Object)
-  - We will be **unmarshalling** loading the XML from this [url](https://civilserviceusa.github.io/us-states/data/states.xml) . The url contains a collection of states in the form of nested XML.
-  - Step 1: We will need to create a limited-type POJO for each individual state. 
+  - We will be loading the XML from this [url](https://civilserviceusa.github.io/us-states/data/states.xml). The url contains a collection of states in the form of nested XML.
+  - **Step 1:** We will need to create a limited-type POJO for each individual state. 
   ````Java
   /**
  * This class represents a single state object.
@@ -136,8 +136,57 @@ public class State {
  
 } //End of State class.
   ````
-  - Step 2: We will also need a class that represents the collection of states. This class will contain the @XMLAnnotations. Because ArrayList is a part of the collection framework, and does not have any JAXB annotations, we need to have a seperate class to represent the set of objects.
-  - Main code
+  - **Step 2:**  We will also need a class that represents the collection of States. This class will contain the @XMLAnnotations. Because ArrayList is a part of the collection framework, and does not have any JAXB annotations, we need to have this seperate class to represent the set of objects.
+   ````Java
+import jakarta.xml.bind.annotation.*;
+import java.util.List;
+
+@XmlRootElement(name = "states")
+@XmlAccessorType(XmlAccessType.FIELD)
+
+public class States {
+
+    @XmlElement(name = "state")
+    private List<State> states = null;
+
+   /* --- GETTER FOR LIST --- */
+    public List<State> getStates() {
+        return states;
+    } //End of getStates
+
+    /* --- SETTER FOR LIST --- */
+    public void setStates(List<State> states) {
+        this.states = states;
+    } //End of setStates.
+
+} //End of States class.
+  ````
+  - **Step 3:**  Now let's get to unmarshalling! First let us create a function that will take in the address, load and unmarshall the content from the url, and give us an ArrayList of the State Objects. 
+  ````Java
+    public static ArrayList<State> loadToObject(String address) {
+        ArrayList<State> stList = new ArrayList<State>();
+        try {
+            //Setting to the new instance of the XML Annotated class.
+            JAXBContext jaxbContext = JAXBContext.newInstance(States.class);
+            //Creating the URL to read from address.
+            URL url = new URL(address);
+            //Creating the Unmarshaller.
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            //Unmarshalling the URL and mapping it to the XML Annotated class States.
+            States sts = (States) jaxbUnmarshaller.unmarshal(url);
+            //For each state inside the States List, sts.getStates(), print out its corresponding data and add to ArrayList.
+            for(State st : sts.getStates()) {
+                System.out.println(st);
+                stList.add(st);
+            } //End of for/each.
+            //JAXBContext.newInstance() throws an Exception.
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.exit(1);
+        } //End of generic catch.
+        return stList;
+    } //End of loadToObject.
+  ````
   - Output in file
 #### Marshalling (Java Object to XML)
   - POJO code
