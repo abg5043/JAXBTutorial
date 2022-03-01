@@ -205,7 +205,7 @@ public static void main( String[] args ) {
 
 <br/>
 
-## Nested XML File (complex)
+## Example 2: Nested XML File (complex)
 - We will be loading the XML from this [local weather url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
 #### Unmarshalling (XML to Java Object)
   - POJO code
