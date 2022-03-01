@@ -207,7 +207,7 @@ public static void main( String[] args ) {
 
 ## Nested XML File (complex)
 #### Unmarshalling (XML to Java Object)
-  - We will be loading the XML from this [url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
+  - We will be loading the XML from this [url](view-source:https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
   - POJO code
   - Main code
 #### Marshalling (Java Object to XML)
