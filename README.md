@@ -42,7 +42,6 @@ We learned that different versions of the dependencies will require different im
 ## Example 1: Simple XML File (simple)
 #### Unmarshalling (XML to Java Object)
   - Step 1: We will need to create a POJO with JAXB Annotations.
-  ```Java
   ```Java 
 
 import jakarta.xml.bind.annotation.XmlElement;
@@ -87,7 +86,6 @@ public class Credentials {
 }
 
 ```
-  ````
 #### Marshalling (Java Object to XML)
   - Output in console
 
