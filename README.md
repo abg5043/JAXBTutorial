@@ -71,7 +71,7 @@ public class Credentials {
     this.port = port;
     this.user = user;
     this.password = password;
-  }
+  } //End of constructor.
 
   //To make JAXB work, we need a no-arg constructor
   public Credentials() {};
@@ -80,12 +80,14 @@ public class Credentials {
   
   //Always put XML annotations for elements above the setter for each field.  
   @XmlElement( name = "host")
+  
   public void setHost(String host) {
     this.host = host;
-  }
+  } //End of setHost.
+  
   public String getHost() {
     return host;
-  }
+  } //End of getHost.
   
   /* --- REMAINING GETTERS & SETTERS --- */
   
@@ -115,19 +117,19 @@ public class Password {
 
   public String getPass() {
     return pass;
-  }
+  } //End of getPass.
 
   public void setPass(String pass) {
     this.pass = pass;
-  }
+  } //End of setPass.
 
   public String getXhint() {
     return xhint;
-  }
+  } //End of getXhint.
 
   public void setXhint(String xhint) {
     this.xhint = xhint;
-  }
+  } //End of setXhint.
 
   @Override
   public String toString() {
@@ -135,8 +137,8 @@ public class Password {
         "xhint='" + xhint + '\'' +
         ", pass='" + pass + '\'' +
         '}';
-  }
-}
+  } //End of toString.
+} //End of Password class.
 ````
 -  Step 3: Unmarshalling in the main.
 ```Java
