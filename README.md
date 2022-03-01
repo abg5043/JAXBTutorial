@@ -206,8 +206,8 @@ public static void main( String[] args ) {
 <br/>
 
 ## Nested XML File (complex)
+- We will be loading the XML from this [local weather url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
 #### Unmarshalling (XML to Java Object)
-  - We will be loading the XML from this [url](view-source:https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
   - POJO code
   - Main code
 #### Marshalling (Java Object to XML)
@@ -218,8 +218,8 @@ public static void main( String[] args ) {
 <br/>
 
 ## Example 3: Array Expressed as XML (complex)
+  - We will be loading the XML from this [collection of states url](https://civilserviceusa.github.io/us-states/data/states.xml). The url contains a collection of states in the form of nested XML.
 #### Unmarshalling (XML to Java Object)
-  - We will be loading the XML from this [url](https://civilserviceusa.github.io/us-states/data/states.xml). The url contains a collection of states in the form of nested XML.
   - **Step 1:** We will need to create a limited-type POJO for each individual state. 
   ````Java
   /**
