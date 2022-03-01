@@ -190,9 +190,15 @@ public static void main( String[] args ) {
         }
     }
 ````
-- Output file:
+- Output in 'newCredentials.xml' file:
 ````XML
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<credentials>
+    <host>missouriwestern.edu</host>
+    <password xhint="Best hint ever">Bad Pass</password>
+    <port>587398</port>
+    <user>Team Awesome</user>
+</credentials>
 ````
 
 <br/>
