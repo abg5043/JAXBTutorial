@@ -16,7 +16,8 @@ JAXB became a part of the JDK in Java 6. In Java 11 (2018), JAXB was removed fro
 Versions exist:  JAXB 1.0 &  JAXB 2.0, Jakarta 3.0<br/><br/>
 
 ## Since it has been removed:
-JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependency. Using older versions of the dependencies require different import statements. 
+JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependencies. 
+We learned that different versions of the dependencies will require different import statements. 
 
 ```Java
 
@@ -39,9 +40,113 @@ JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use
 <br/>
 
 ## Simple XML File (simple)
+  #### - **Create a POJO with JAXB annotations** (we created 3 examples to show different ways to annotate).  
+  **Example 1:**
+  
+```Java 
+
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement( name = "credentials" )
+public class Credentials {
+
+  //Create fields for every xml attribute and element
+  private String host;
+  private String port;
+  private String user;
+  private Password password;
+  
+  //Create constructor and pass in all elements
+  public Credentials(String host, String port, String user, Password password) {
+    this.host = host;
+    this.port = port;
+    this.user = user;
+    this.password = password;
+  }
+
+  //To make JAXB work, we need a no-arg constructor
+  public Credentials() {};
+
+  //Any element with annotations need to be objects with their own annotations.
+  
+  //Always put XML annotations for elements above the setter for each field.  
+  @XmlElement( name = "host")
+  public void setHost(String host) {
+    this.host = host;
+  }
+  public String getHost() {
+    return host;
+  }
+  
+  /* --- REMAINING GETTERS & SETTERS --- */
+  
+  /* --- TO STRING --- */
+    //I would suggest making a toString so that you can easily read & print the object.
+  }
+}
+
+```
+  **Example 2:**
+
+```Java
+
+import jakarta.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
+public class Credentials_Option2 {
+
+  @XmlElement
+  protected String host;
+
+  @XmlElement
+  protected String port;
+
+  @XmlAttribute
+  protected String xhint;
+
+  @XmlElement
+  protected String user;
+
+  @XmlElement
+  protected String password;
+
+}
+
+```
+  **Example 3:**
+  
+  ```Java
+import jakarta.xml.bind.annotation.*;
+
+@XmlRootElement(name = "credentials")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Credentials_Option3 {
+
+  @XmlElement(name = "user")
+  String user;
+
+  @XmlElement(name = "password")
+  String password;
+
+  @XmlAttribute(name = "xhint")
+  String xhint;
+
+  @XmlElement(name = "host")
+  String host;
+
+  @XmlElement(name = "port")
+  String port;
+
+  /* --- TO STRING --- */
+
+  }
+}
+
+```
 #### Marshalling (Java Object to XML)
-  - POJO code
-  - Main code
+
 
   ```Java
 import jakarta.xml.bind.JAXBContext;
@@ -61,12 +166,6 @@ import java.io.File;
 
         //try-catch catches JAXBException
         try {
-            //This is an example of unmarshalling with a simple XML
-            File simpleXML = new File("zz_woz.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Credentials credentials = (Credentials) jaxbUnmarshaller.unmarshal(simpleXML);
-            System.out.println(credentials);
 
             //This is an example of taking that same object and marshalling it into an xml file with a simple XML
             Password password = new Password();
@@ -93,9 +192,54 @@ import java.io.File;
 ```
   - Output in console
 #### Unmarshalling (XML to Java Object)
-  - Local XML file 
-  - POJO code
-  - Main code
+  - We will be using a local WOZ file to load login credentials. 
+ 
+ ```Java
+ <?xml version="1.0"?>
+<credentials>
+    <host>woz.cs.missouriwestern.edu</host>
+    <port>33006</port> <!--This isn't the right port, by the way -->
+    <user>csc</user>
+    <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
+</credentials>
+```
+
+```Java
+
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+import java.io.File;
+
+/**
+ * This app demonstrates how to use JAXB to turn a simple xml file into an object (unmarshall)
+ * and then a java object into an xml file (marshall)
+ *
+ * @since February 2022
+ * @author Aaron Grant Christin Wilson, Will Malita, and Melissa Bayer
+ *
+ */
+public class SimpleXMLDemo
+{
+    public static void main( String[] args ) {
+
+        //try-catch catches JAXBException
+        try {
+            //This is an example of unmarshalling with a simple XML
+            File simpleXML = new File("zz_woz.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(Credentials.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Credentials credentials = (Credentials) jaxbUnmarshaller.unmarshal(simpleXML);
+            System.out.println(credentials);
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+}
+```
 
 ## Nested XML File (complex)
 #### Marshalling (Java Object to XML)
