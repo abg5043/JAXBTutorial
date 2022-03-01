@@ -10,7 +10,7 @@ JAXB stands for Java Architecture XML Binding. It is a tool that is used by Java
 
 ## JAXB Annotations and their meaning:
 JAXB uses JAXB Annotations in classes to be able to use the above features. The annotations that are used in the following examples are:
-- @XmlRootElement :
+- @XmlRootElement : It's purpose is to uniquely associate a root element in XML with a Java class. For istance, in Example 1: Simple XML File, we use a class called Credentials. This directly correlates the to <credentials> tag.
 - @XmlValue :
 - @XmlElement :
 - @XmlAttribute :
