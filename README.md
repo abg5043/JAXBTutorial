@@ -350,10 +350,6 @@ import jakarta.xml.bind.annotation.XmlSchema;
 
 //https://stackoverflow.com/questions/25819934/jaxb-unmarshalling-with-namespace
 ````
-- Output in console:
-````Java
-
-````
 - Step 4: Unmarshall in the main.
 ```Java
 public static void main( String[] args ) {
@@ -369,6 +365,11 @@ public static void main( String[] args ) {
             System.exit(1);
         } //End of catch.
     } //End of main.
+````
+
+- Output in console:
+````Java
+
 ````
  
 #### Marshalling (Java Object to XML)
