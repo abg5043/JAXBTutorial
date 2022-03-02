@@ -222,8 +222,56 @@ public static void main( String[] args ) {
 ## Example 2: Nested XML File (complex)
 - We will be loading the XML from this [local weather url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
 #### Unmarshalling (XML to Java Object)
-  - POJO code
+  - Step 1: Make the first XML annotated class
  ````Java
+ import jakarta.xml.bind.annotation.*;
+
+/**
+ * This class is the root class for an xml file of current observations.
+ */
+@XmlRootElement(name = "current_observation")
+//This annotation means that we put the annotations above the field names instead of setters
+@XmlAccessorType(XmlAccessType.FIELD)
+public class CurrentObservation {
+  //Create fields for every xml attribute and element
+  @XmlAttribute(name = "version")
+  private double version;
+  /*
+   * You cannot unmarshal the xsi:noNamespaceSchemaLocation annotation, but you can instruct the marshaller
+   * to include it as notated in the App.java file. Similarly, notice the package-info.java file that tells the marshaller
+   * to include other information about namespace. You cannot, though, seem to be able to import that information
+   * with the unmarshaller.
+   */
+  @XmlElement( name = "credit")
+  private String credit;
+  @XmlElement( name = "credit_URL")
+  private String creditUrl;
+  //For elements with nested elements, make the parent element an object
+  //Each of the nested elements will be @XmlElements within that object
+  @XmlElement( name = "image")
+  private Image image;
+  @XmlElement( name = "suggested_pickup")
+  private String suggestedPickup;
+  @XmlElement( name = "suggested_pickup_period")
+  private int suggestedPickupPeriod;
+  /* --- AND THE REST OF THE ELEMENTS HERE--- */
+  
+  //To make JAXB work, we need a no-arg constructor
+  public CurrentObservation() {}
+ 
+ //Then you can make another constructor that can take in arguments.
+ public CurrentObservation(double version, String credit, String creditUrl, Image image, String suggestedPickup, int suggestedPickupPeriod, String location, String stationID, double latitude, double longitude, String observationTime, String observationTimeRFC822, String weather, String temperatureString, double tempF, double tempC, int relativeHumidity, String windString, String windDir, int windDegrees, double windMPH, int windKT, String pressureString, double pressureMB, double pressureIn, String dewpointString, double dewPointF, double dewPointC, double visibilityMi, String iconURLBase, String twoDayHistoryUrl, String iconUrlName, String obUrl, String disclaimerUrl, String copyrightUrl, String privacyPolicyUrl) {
+    this.credit = credit;
+    this.creditUrl = creditUrl;
+    this.image = image;
+    this.suggestedPickup = suggestedPickup;
+    this.suggestedPickupPeriod = suggestedPickupPeriod;
+} //End of the CurrentObservation constructor.
+
+/* --- ALL GETTERS & SETTERS HERE --- */ 
+  
+/* --- TOSTRING HERE--- */ 
+  
  ````
   - Main code
  ````Java
