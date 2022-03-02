@@ -188,7 +188,7 @@ public static void main( String[] args ) {
 ````
 - Credentials printed to console:
 ````Java
-
+Credentials {user=csc, password=Password{xhint='room where woz is located It definitily is not '!😈湯🦊🚴'', pass='********'}, host=woz.cs.missouriwestern.edu, port=33006,  }
 ````
 
 #### Marshalling (Java Object to XML)
