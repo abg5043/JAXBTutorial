@@ -109,7 +109,8 @@ public class Credentials {
 
 ```
 - Step 2: Create another class so that we can grab the 'xhint' attribute.
-Explanation: In the Credentials class we used @XmlAttribute to grab xhint. Unfortunately, that does not grab the value that xhint holds.
+
+  Explanation: In the Credentials class we used @XmlAttribute to grab xhint. Unfortunately, that does not grab the value that xhint holds.
 ````XML
  <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
 ````
@@ -260,13 +261,21 @@ public class CurrentObservation {
   public CurrentObservation() {}
  
  //Then you can make another constructor that can take in arguments.
- public CurrentObservation(double version, String credit, String creditUrl, Image image, String suggestedPickup, int suggestedPickupPeriod, String location, String stationID, double latitude, double longitude, String observationTime, String observationTimeRFC822, String weather, String temperatureString, double tempF, double tempC, int relativeHumidity, String windString, String windDir, int windDegrees, double windMPH, int windKT, String pressureString, double pressureMB, double pressureIn, String dewpointString, double dewPointF, double dewPointC, double visibilityMi, String iconURLBase, String twoDayHistoryUrl, String iconUrlName, String obUrl, String disclaimerUrl, String copyrightUrl, String privacyPolicyUrl) {
+ public CurrentObservation(double version, String credit, String creditUrl, Image image, String suggestedPickup, 
+ int suggestedPickupPeriod, String location, String stationID, double latitude, double longitude, String observationTime, 
+ String observationTimeRFC822, String weather, String temperatureString, double tempF, double tempC, int relativeHumidity, 
+ String windString, String windDir, int windDegrees, double windMPH, int windKT, String pressureString, 
+ double pressureMB, double pressureIn, String dewpointString, double dewPointF, double dewPointC, 
+ double visibilityMi, String iconURLBase, String twoDayHistoryUrl, String iconUrlName, String obUrl, S
+ tring disclaimerUrl, String copyrightUrl, String privacyPolicyUrl) {
     this.credit = credit;
     this.creditUrl = creditUrl;
     this.image = image;
     this.suggestedPickup = suggestedPickup;
     this.suggestedPickupPeriod = suggestedPickupPeriod;
+    //The rest here...
 } //End of the CurrentObservation constructor.
+
 
 /* --- ALL GETTERS & SETTERS HERE --- */ 
   
