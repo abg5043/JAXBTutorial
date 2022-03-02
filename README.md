@@ -108,9 +108,9 @@ public class Credentials {
 } //End of Credentials class.
 
 ```
-- Step 2: Create another class so that we can grab the 'xhint' attribute.
+- Step 2: Create another class so that we can grab the 'xhint' attribute and its value.
 
-  Explanation: In the Credentials class we used @XmlAttribute to grab xhint. Unfortunately, that does not grab the value that xhint holds.
+  Explanation: @XmlAttribute grabs the attribute but not the value. We must make a new class for the element that contains the attribute and its value. This is why we make another class called password. Here we can grab the attribute and its value. In summary,  if you want to extract the value of an attribute you have to make an object for the specific element. 
 ````XML
  <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
 ````
@@ -282,9 +282,99 @@ public class CurrentObservation {
 /* --- TOSTRING HERE--- */ 
   
  ````
-  - Main code
+  - Step 2 : Make another XML annotated class.
  ````Java
+ import jakarta.xml.bind.annotation.XmlElement;
+
+public class Image {
+  private String url;
+  private String title;
+  private String link;
+
+  public String getUrl() {
+    return url;
+  }
+
+  @XmlElement( name = "url")
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  @XmlElement( name = "title")
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getLink() {
+    return link;
+  }
+
+  @XmlElement( name = "link")
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  @Override
+  public String toString() {
+    return "Image{" +
+        "url='" + url + '\'' +
+        ", title='" + title + '\'' +
+        ", link='" + link + '\'' +
+        '}';
+  }
+}
  ````
+ - Step 3 : Make a package.
+ 
+   Explanation:
+ aaron plz explain?
+ 
+````Java
+@XmlSchema(
+    elementFormDefault = XmlNsForm.QUALIFIED,
+    xmlns={
+        @XmlNs(prefix="xsd", namespaceURI="http://www.w3.org/2001/XMLSchema"),
+        @XmlNs(prefix="xsi", namespaceURI="http://www.w3.org/2001/XMLSchema-instance")
+    }
+)
+
+package edu.missouriwestern.agrant4.nestedDemo;
+
+import jakarta.xml.bind.annotation.XmlNs;
+import jakarta.xml.bind.annotation.XmlNsForm;
+import jakarta.xml.bind.annotation.XmlSchema;
+
+//https://stackoverflow.com/questions/25819934/jaxb-unmarshalling-with-namespace
+````
+- Step 4: Unmarshall in the main.
+```Java
+public static void main( String[] args ) {
+        try {
+            //This is an example of unmarshalling a nested XML
+            File nestedXML = new File("KSTJ.xml");
+            JAXBContext jaxbContext = JAXBContext.newInstance(CurrentObservation.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            CurrentObservation currentObservation = (CurrentObservation) jaxbUnmarshaller.unmarshal(nestedXML);
+            System.out.println(currentObservation);
+
+            //This is an example of marshalling a nested XML
+            jaxbContext = JAXBContext.newInstance(CurrentObservation.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
+            jaxbMarshaller.setProperty( Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "http://www.weather.gov/view/current_observation.xsd");
+            jaxbMarshaller.marshal( currentObservation, new File ("newObservations.xml"));
+            jaxbMarshaller.marshal( currentObservation, System.out);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } //End of catch.
+    } //End of main.
+````
+ 
 #### Marshalling (Java Object to XML)
   - POJO code
   ````Java
