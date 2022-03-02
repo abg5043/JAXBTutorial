@@ -350,6 +350,10 @@ import jakarta.xml.bind.annotation.XmlSchema;
 
 //https://stackoverflow.com/questions/25819934/jaxb-unmarshalling-with-namespace
 ````
+- Output in console:
+````Java
+
+````
 - Step 4: Unmarshall in the main.
 ```Java
 public static void main( String[] args ) {
@@ -360,7 +364,18 @@ public static void main( String[] args ) {
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             CurrentObservation currentObservation = (CurrentObservation) jaxbUnmarshaller.unmarshal(nestedXML);
             System.out.println(currentObservation);
-
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } //End of catch.
+    } //End of main.
+````
+ 
+#### Marshalling (Java Object to XML)
+  - Using the same classes above...
+  ````Java
+  public static void main( String[] args ) {
+        try {
             //This is an example of marshalling a nested XML
             jaxbContext = JAXBContext.newInstance(CurrentObservation.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -371,16 +386,8 @@ public static void main( String[] args ) {
         } catch (JAXBException e) {
             e.printStackTrace();
             System.exit(1);
-        } //End of catch.
+        }  //End of catch.
     } //End of main.
-````
- 
-#### Marshalling (Java Object to XML)
-  - POJO code
-  ````Java
- ````
-  - Main code
-  ````Java
  ````
   - Output to file can be found -> ['newObservations.xml' output](https://github.com/abg5043/JAXBTutorial/blob/master/newObservations.xml)
 
