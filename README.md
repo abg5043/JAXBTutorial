@@ -382,6 +382,7 @@ public static void main( String[] args ) {
 
 - Output in console:
 ````Java
+CurrentObservation{ version='1.0', credit='NOAA's National Weather Service', creditUrl='https://weather.gov/', image=Image{url='https://weather.gov/images/xml_logo.gif', title='NOAA's National Weather Service', link='https://www.weather.gov'}, suggestedPickup='15 minutes after the hour', suggestedPickupPeriod=60, location='St. Joseph, Rosecrans Memorial Airport, MO', stationID='KSTJ', latitude=39.76806, longitude=-94.90917, observationTime='Last Updated on Feb 27 2022, 5:53 am CST', observationTimeRFC822='Sun, 27 Feb 2022 05:53:00 -0600', weather='Fair', temperatureString='13.0 F (-10.6 C)', tempF=13.0, tempC=-10.6, relativeHumidity=77, windString='Calm', windDir='North', windDegrees=0, windMPH=0.0, windKT=0, pressureString='1029.2 mb', pressureMB=1029.2, pressureIn=30.36, dewpointString='7.0 F (-13.9 C)', dewPointF=7.0, dewPointC=-13.9, visibilityMi=9.0, iconURLBase='https://forecast.weather.gov/images/wtf/small/', twoDayHistoryUrl='https://www.weather.gov/data/obhistory/KSTJ.html', iconUrlName='nskc.png', obUrl='https://www.weather.gov/data/METAR/KSTJ.1.txt', disclaimerUrl='https://www.weather.gov/disclaimer.html', copyrightUrl='https://www.weather.gov/disclaimer.html', privacyPolicyUrl='https://www.weather.gov/notice.html'}
 
 ````
  
