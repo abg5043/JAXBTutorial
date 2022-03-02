@@ -109,7 +109,7 @@ public class Credentials {
 
 ```
 - Step 2: Create another class so that we can grab the 'xhint' attribute.
-Explanation: maybe aaron should explain this...
+Explanation: In the Credentials class we used @XmlAttribute to grab xhint. Unfortunately, that does not grab the value that xhint holds.
 ````XML
  <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
 ````
