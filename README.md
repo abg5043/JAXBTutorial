@@ -10,11 +10,12 @@ JAXB stands for Java Architecture XML Binding. It is a tool that is used by Java
 
 ## JAXB Annotations and their meaning:
 JAXB uses JAXB Annotations in classes to be able to use the above features. The annotations that are used in the following examples are:
-- @XmlRootElement : It's purpose is to uniquely associate a root element in XML with a Java class. For istance, in Example 1: Simple XML File, we use a class called Credentials. This directly correlates the to 'credentials' tag.
-- @XmlValue :
-- @XmlElement :
-- @XmlAttribute :
-- @XmlAccessorType :
+- @XmlRootElement : Its purpose is to uniquely associate a root element in XML with a Java class. For instance, in Example 1: Simple XML File, we use a class called Credentials. This directly correlates the to \<credentials\> tag.
+  
+- @XmlElement : is an XML element derived from a property name. For example, \<name\> Bobby \</name\> is an element. 
+- @XmlAttribute : is an XML attribute derived from content within the element. For instance, \<number type="phone"\>816-777-4444\<number\>, here type="phone" is the attribute. Attributes usually play the role of informative, giving more information about the XML elements.
+- @XmlAccessorType : Defines the fields and properties of the Java classes that JAXB will use for binding. 
+- @XmlValue : is the value of an attribute for instance "phone" in \<number type="phone"\>816-777-4444\<number\>.
 
 <br/>  
 
