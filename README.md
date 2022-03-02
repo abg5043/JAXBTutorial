@@ -13,9 +13,9 @@ JAXB uses JAXB Annotations in classes to be able to use the above features. The 
 - @XmlRootElement : Its purpose is to uniquely associate a root element in XML with a Java class. For instance, in Example 1: Simple XML File, we use a class called Credentials. This directly correlates the to \<credentials\> tag.
   
 - @XmlElement : is an XML element derived from a property name. For example, \<name\> Bobby \</name\> is an element. 
-- @XmlAttribute : is an XML attribute derived from content within the element. For instance, \<number type="phone"\>816-777-4444\<number\>, here type="phone" is the attribute. Attributes usually play the role of informative, giving more information about the XML elements.
-- @XmlAccessorType : Defines the fields and properties of the Java classes that JAXB will use for binding. 
+- @XmlAttribute : is an XML attribute derived from content within the element. For instance, \<number type="phone"\>816-777-4444\<number\>, here 'type' is the attribute. Attributes usually play the role of informative, giving more information about the XML elements.
 - @XmlValue : is the value of an attribute for instance "phone" in \<number type="phone"\>816-777-4444\<number\>.
+- @XmlAccessorType : Defines the fields and properties of the Java classes that JAXB will use for binding. 
 
 <br/>  
 
@@ -223,10 +223,18 @@ public static void main( String[] args ) {
 - We will be loading the XML from this [local weather url](https://w1.weather.gov/xml/current_obs/KSTJ.xml). The url contains the local weather in the form of nested XML.
 #### Unmarshalling (XML to Java Object)
   - POJO code
+ ````Java
+ ````
   - Main code
+ ````Java
+ ````
 #### Marshalling (Java Object to XML)
   - POJO code
+  ````Java
+ ````
   - Main code
+  ````Java
+ ````
   - Output to file can be found -> ['newObservations.xml' output](https://github.com/abg5043/JAXBTutorial/blob/master/newObservations.xml)
 
 <br/>
