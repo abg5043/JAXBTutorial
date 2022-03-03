@@ -3,36 +3,6 @@
 ## What is JAXB?
 JAXB stands for Java Architecture XML Binding. It is a tool that is used by Java developers to map Java to XML representations. Today, JAXB  is also  known as Jakarta XML binding.<br/><br/>
 
-## The two main features/operations of JAXB are: 
-- **````Marshalling```` -> converting a Java Object into XML** 
-- **```` Unmarshalling```` -> converting XML to a Java Object** 
-<br/>
-
-## JAXB Annotations and their meaning:
-JAXB uses JAXB Annotations in classes to be able to use the above features. The annotations below are ones we use throughout this tutorial.
-
-We use this XML in our first example, however, I am going to use it here to better explain these annotations:
-````XML
-<?xml version="1.0"?>
-  <credentials>
-      <host>woz.cs.missouriwestern.edu</host>
-      <port>33006</port> <!--This isn't the right port, by the way -->
-      <user>csc</user>
-      <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
-  </credentials>
-````
-- @XmlRootElement : Its purpose is to uniquely associate a root element in XML with a Java class. For instance, credentials holds host, password, port, and user elements, credentials is the root element. We create classes based upon our root element(s).
-
-- @XmlElement : is an XML element derived from a property name. For example, ````<host>missouriwestern.edu</host>```` is an element.
-
-- @XmlAttribute : is an XML attribute derived from content within the element. For instance, in ````<password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>>```` 'xhint' is the attribute. Attributes usually play the role of informative, giving more information about the XML elements.
-
-- @XmlValue : is the value of an attribute. For instance, in ````<password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>>````the value of the 'xhint' is "room where woz is located It definitily is not '!😈湯🦊🚴".
-
-- @XmlAccessorType : Defines the fields and properties of the Java classes that JAXB will use for binding. 
-
-<br/>  
-
 ## Removal of JAXB from the Java JDK:
 JAXB became a part of the JDK in Java 6. In Java 11 (2018), JAXB was removed from the JDK. 
 - JAXB is still a part of the JDK in Java 6,7, and 8.
@@ -64,6 +34,37 @@ We learned that different versions of the dependencies will require different im
 
 ``` 
 <br/>
+
+## The two main features/operations of JAXB are: 
+- **````Marshalling```` -> converting a Java Object into XML** 
+- **```` Unmarshalling```` -> converting XML to a Java Object** 
+<br/>
+
+## JAXB Annotations and their meaning:
+JAXB uses JAXB Annotations in classes to be able to use the above features. The annotations below are ones we use throughout this tutorial.
+
+We use this XML in our first example, however, I am going to use it here to better explain these annotations:
+````XML
+<?xml version="1.0"?>
+  <credentials>
+      <host>woz.cs.missouriwestern.edu</host>
+      <port>33006</port> <!--This isn't the right port, by the way -->
+      <user>csc</user>
+      <password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>
+  </credentials>
+````
+- @XmlRootElement : Its purpose is to uniquely associate a root element in XML with a Java class. For instance, credentials holds host, password, port, and user elements, credentials is the root element. We create classes based upon our root element(s).
+
+- @XmlElement : is an XML element derived from a property name. For example, ````<host>missouriwestern.edu</host>```` is an element.
+
+- @XmlAttribute : is an XML attribute derived from content within the element. For instance, in ````<password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>>```` 'xhint' is the attribute. Attributes usually play the role of informative, giving more information about the XML elements.
+
+- @XmlValue : is the value of an attribute. For instance, in ````<password xhint="room where woz is located It definitily is not '!😈湯🦊🚴'">********</password>>````the value of the 'xhint' is "room where woz is located It definitily is not '!😈湯🦊🚴".
+
+- @XmlAccessorType : Defines the fields and properties of the Java classes that JAXB will use for binding. 
+
+<br/>  
+
 
 ## Example 1: Simple XML File (simple)
   - This is the XML we will be Unmarshalling & Marshalling.
