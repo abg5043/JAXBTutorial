@@ -15,7 +15,7 @@ Versions exist:  JAXB 1.0 &  JAXB 2.0, Jakarta 3.0<br/><br/>
 JAXB (Jakarta XML Binding) can still be utilized. To do so, you will need to use the following dependencies. 
 We learned that different versions of the dependencies will require different import statements. 
 
-```Java
+````Java
 
 <!-- JAXB API only -->
   <dependency>
@@ -32,7 +32,7 @@ We learned that different versions of the dependencies will require different im
       <scope>runtime</scope>
   </dependency>
 
-``` 
+```` 
 <br/>
 
 ## The two main features/operations of JAXB are: 
@@ -78,8 +78,8 @@ We use this XML in our first example, however, I am going to use it here to bett
   </credentials>
 ````
 #### Unmarshalling (XML to Java Object)
-  - Step 1: We will need to create a POJO with JAXB Annotations.
-  ```Java 
+  - Step 1: Create a POJO with JAXB Annotations.
+````Java 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
@@ -122,7 +122,7 @@ public class Credentials {
     //I would suggest making a toString so that you can easily read & print the object.
 } //End of Credentials class.
 
-```
+````
 - Step 2: Create another class so that we can grab the 'xhint' attribute and its value.
 
   Explanation: @XmlAttribute grabs the attribute but not the value. We must make a new class for the element that contains the attribute and its value. This is why we make another class called password. Here we can grab the attribute and its value. In summary,  if you want to extract the value of an attribute you have to make an object for the specific element. 
@@ -169,7 +169,7 @@ public class Password {
 } //End of Password class.
 ````
 -  Step 3: Unmarshalling in the main.
-```Java
+````Java
 public static void main( String[] args ) {
 
         //try-catch catches JAXBException
